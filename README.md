@@ -32,14 +32,12 @@ Reference:
   docker --version
   ```
 
-
-
 ## 2. Configure AWS Account [AWS]
 
 Account Id:
 
 ```
-785385202614
+000000000000
 ```
 
 Configure new profile to use AWS CLI with above `Account Id`
@@ -54,7 +52,7 @@ Start using new profile
 export AWS_PROFILE=demo_ctai_qa
 ```
 
-## 3. Build ECR Docker Image 
+## 3. Build ECR Docker Image
 
 Following format:
 
@@ -62,13 +60,11 @@ Following format:
 docker build --platform linux/amd64 -t <account_id>.dkr.ecr.<region-code>.amazonaws.com/aws-lambda-scikit-learn:latest -f Dockerfile .
 ```
 
-
-Since `account_id` =  785385202614, our command:
+Since `account_id` =  000000000000, our command:
 
 ```
-docker build --platform linux/amd64 -t 785385202614.dkr.ecr.ap-southeast-1.amazonaws.com/aws-lambda-scikit-learn:latest -f Dockerfile .
+docker build --platform linux/amd64 -t 000000000000.dkr.ecr.ap-southeast-1.amazonaws.com/aws-lambda-scikit-learn:latest -f Dockerfile .
 ```
-
 
 ## 4. Push Docker Image to ECR service (Docker Hub host by AWS)
 
@@ -79,16 +75,14 @@ export AWS_PROFILE=demo_ctai_qa
 
 ```
 
-
 Login to Docker Hub with AWS credential:
 
 ```
-aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 785385202614.dkr.ecr.ap-southeast-1.amazonaws.com
+aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 000000000000.dkr.ecr.ap-southeast-1.amazonaws.com
 ```
-
 
 Push image to Docker Hub:
 
 ```
-docker push 785385202614.dkr.ecr.ap-southeast-1.amazonaws.com/aws-lambda-scikit-learn:latest
+docker push 000000000000.dkr.ecr.ap-southeast-1.amazonaws.com/aws-lambda-scikit-learn:latest
 ```
