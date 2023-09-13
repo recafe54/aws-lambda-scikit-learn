@@ -5,7 +5,7 @@
 Build & Setup Local Server with port 8000:
 
 ```
-docker build --platform linux/amd64 -t docker-image:test .
+docker build --platform linux/amd64 -t docker-image:test -f Dockerfile .
 docker run -p 9000:8080 docker-image:test
 ```
 
@@ -80,7 +80,7 @@ export AWS_PROFILE=demo_ctai_qa
 ```
 
 
-Login to Docker Hub:
+Login to Docker Hub with AWS credential:
 
 ```
 aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 785385202614.dkr.ecr.ap-southeast-1.amazonaws.com

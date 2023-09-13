@@ -4,7 +4,7 @@ FROM public.ecr.aws/lambda/python:3.11
 COPY requirements.txt ${LAMBDA_TASK_ROOT}
 
 # Copy function code
-COPY src/lambda_function.py ${LAMBDA_TASK_ROOT}
+COPY src/iris_class/lambda_function.py ${LAMBDA_TASK_ROOT}
 
 # Install the specified packages
 RUN pip install -r requirements.txt
