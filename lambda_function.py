@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings("ignore", category=exceptions.ConvergenceWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 
-def lambda_handler(event, context):
+def handler(event, context):
     model = train_logistic_regression()
     prediction = model.predict([[6.4,2.9,4.3,1.3]])
     return {
